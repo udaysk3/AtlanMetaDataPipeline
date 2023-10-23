@@ -1,0 +1,13 @@
+# Use the official Confluent Platform Kafka image as a parent image
+FROM confluentinc/cp-kafka:latest
+
+# Set Kafka environment variables
+ENV KAFKA_LISTENERS=PLAINTEXT://:9092
+ENV KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://your_kafka_hostname:9092
+ENV KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT
+
+# Create any necessary topics during container initialization
+ENV KAFKA_CREATE_TOPICS=your_topic_name:1:1
+
+# Expose Kafka ports
+EXPOSE 9092

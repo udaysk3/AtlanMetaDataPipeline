@@ -1,0 +1,17 @@
+version: '3'
+services:
+  atlan-metadata:
+    build: ./atlan-metadata  # Path to your Atlan Metadata Platform Dockerfile
+    ports:
+      - "80:80"
+    # Add other configuration options as needed
+    depends_on:
+      - kafka
+
+  kafka:
+    build: ./kafka  # Path to your Kafka Dockerfile
+    ports:
+      - "9092:9092"
+    # Add other configuration options as needed
+
+# Add other services as needed
