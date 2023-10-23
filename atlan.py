@@ -111,7 +111,7 @@ class AtlanKafkaConsumer:
         )
         global atlanmetaDataStore
     def check_entity_existence(self, entity_id):
-        # Implement the logic to check if the entity exists in the metadata store
+        # We will Implement the logic to check if the entity exists in the metadata store
         return entity_id in atlanmetaDataStore.keys()
 
     def consume(self):
@@ -196,7 +196,7 @@ class AtlanMetadataPipeline:
             self.ingest_other_assets(other_events)
 
     def ingest_other_assets(self, other_events):
-        # Implement the logic to process and ingest other asset types (databases, schemas, tables, dashboards)
+        # We will Implement the logic to process and ingest other asset types (databases, schemas, tables, dashboards)
         for event in other_events:
             # Process and ingest other asset types as needed
             self.atlan.write_metadata(event['entity_type'], event['entity_id'], event['change_type'], event['data'])
@@ -226,7 +226,7 @@ class AtlanMetadataPipeline:
             processed_events = self.atlan_processor.process(events)
 
             for event in processed_events:
-                # Implement logic to propagate changes to downstream entities or systems
+                # We will Implement logic to propagate changes to downstream entities or systems
                 # I can use Atlan APIs to trigger updates in downstream systems
                 # Example: atlan.propagate_changes(event)
                 self.atlan.propagate_changes(event)
@@ -239,24 +239,24 @@ class AtlanMetadataPipeline:
             for event in processed_events:
                 # Check if the entity has PII or GDPR annotations
                 if self.is_pii_or_gdpr_annotated(event['entity_id']):
-                    # Implement logic to notify external data tools and enforce access control
+                    # We will Implement logic to notify external data tools and enforce access control
                     # Example: atlan.notify_external_system(event)
                     self.atlan.notify_external_system(event)
 
     def is_pii_or_gdpr_annotated(self, entity_id):
-        # Implement logic to check if the entity has PII or GDPR annotations in Atlan
+        # We will Implement logic to check if the entity has PII or GDPR annotations in Atlan
         # Example: We can use Atlan APIs to query entity annotations
         # If annotations are found, return True; otherwise, return False
         # Replace this with actual logic
         return False
 
     def notify_external_system(self, event):
-        # Implement logic to notify external data tools and enforce access control
+        # We will Implement logic to notify external data tools and enforce access control
         # Example: We can use Atlan APIs to notify and enforce access control
         pass
 
     def propagate_changes(self, event):
-        # Implement logic to propagate changes to downstream entities or systems
+        # We will Implement logic to propagate changes to downstream entities or systems
         # Example: We can use Atlan APIs to trigger updates in downstream systems
         pass
 
@@ -267,7 +267,7 @@ class SaaSConnector:
         self.base_url = base_url
 
     def authenticate(self):
-        # Implement authentication logic based on the SaaS application's requirements
+        #  We will Implement authentication logic based on the SaaS application's requirements
         # For example, if the SaaS uses API key authentication:
         headers = {
             'Authorization': f'Bearer {self.api_key}'
