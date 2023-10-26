@@ -71,16 +71,16 @@ class AtlanHiveMetadataStore:
         # self.password = password
 
     def connect(self):
-        # try:
+        try:
             conn = hive.Connection(
                 host=self.host,
                 port=self.port,
                 database=self.database,
             )
             return conn
-        # except Exception as e:
-        #     print(f"Error connecting to Hive: {e}")
-        #     return None
+        except Exception as e:
+            print(f"Error connecting to Hive: {e}")
+            return None
 
     def write_metadata(self, entity_type, entity_id, change_type, data):
         conn = self.connect()
